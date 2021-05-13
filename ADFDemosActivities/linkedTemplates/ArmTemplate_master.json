@@ -1,0 +1,152 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFDemosActivities"
+		},
+		"LS_AzureBlobStorage_destination_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_AzureBlobStorage_destination'"
+		},
+		"LS_AzureBlobStorage_source_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AzureBlobStorage_source'"
+		},
+		"LS_AzureDataLakeStorage_Connection2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_AzureDataLakeStorage_Connection2'"
+		},
+		"LS_AzureDataLakeStorage_demosactivities2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_AzureDataLakeStorage_demosactivities2'"
+		},
+		"LS_AzureSqlDatabase_Connections_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AzureSqlDatabase_Connections'"
+		},
+		"LS_azureDataLakeStorage_connection_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_azureDataLakeStorage_connection'"
+		},
+		"LS_step2cdb22_destination_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_step2cdb22_destination'"
+		},
+		"LS_AzureBlobStorage_destination_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sademosactivities2.dfs.core.windows.net"
+		},
+		"LS_AzureDataLakeStorage_Connection2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sademosactivities.dfs.core.windows.net"
+		},
+		"LS_AzureDataLakeStorage_demosactivities2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sademosactivities2.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFDemosActivities_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_AzureBlobStorage_destination_accountKey": {
+						"value": "[parameters('LS_AzureBlobStorage_destination_accountKey')]"
+					},
+					"LS_AzureBlobStorage_source_connectionString": {
+						"value": "[parameters('LS_AzureBlobStorage_source_connectionString')]"
+					},
+					"LS_AzureDataLakeStorage_Connection2_accountKey": {
+						"value": "[parameters('LS_AzureDataLakeStorage_Connection2_accountKey')]"
+					},
+					"LS_AzureDataLakeStorage_demosactivities2_accountKey": {
+						"value": "[parameters('LS_AzureDataLakeStorage_demosactivities2_accountKey')]"
+					},
+					"LS_AzureSqlDatabase_Connections_connectionString": {
+						"value": "[parameters('LS_AzureSqlDatabase_Connections_connectionString')]"
+					},
+					"LS_azureDataLakeStorage_connection_connectionString": {
+						"value": "[parameters('LS_azureDataLakeStorage_connection_connectionString')]"
+					},
+					"LS_step2cdb22_destination_connectionString": {
+						"value": "[parameters('LS_step2cdb22_destination_connectionString')]"
+					},
+					"LS_AzureBlobStorage_destination_properties_typeProperties_url": {
+						"value": "[parameters('LS_AzureBlobStorage_destination_properties_typeProperties_url')]"
+					},
+					"LS_AzureDataLakeStorage_Connection2_properties_typeProperties_url": {
+						"value": "[parameters('LS_AzureDataLakeStorage_Connection2_properties_typeProperties_url')]"
+					},
+					"LS_AzureDataLakeStorage_demosactivities2_properties_typeProperties_url": {
+						"value": "[parameters('LS_AzureDataLakeStorage_demosactivities2_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ADFDemosActivities_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADFDemosActivities_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ADFDemosActivities_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADFDemosActivities_ArmTemplate_1')]"
+			]
+		}
+	]
+}

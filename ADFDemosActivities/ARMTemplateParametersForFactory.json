@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFDemosActivities"
+		},
+		"LS_AzureBlobStorage_destination_accountKey": {
+			"value": ""
+		},
+		"LS_AzureBlobStorage_source_connectionString": {
+			"value": ""
+		},
+		"LS_AzureDataLakeStorage_Connection2_accountKey": {
+			"value": ""
+		},
+		"LS_AzureDataLakeStorage_demosactivities2_accountKey": {
+			"value": ""
+		},
+		"LS_AzureSqlDatabase_Connections_connectionString": {
+			"value": ""
+		},
+		"LS_azureDataLakeStorage_connection_connectionString": {
+			"value": ""
+		},
+		"LS_step2cdb22_destination_connectionString": {
+			"value": ""
+		},
+		"LS_AzureBlobStorage_destination_properties_typeProperties_url": {
+			"value": "https://sademosactivities2.dfs.core.windows.net"
+		},
+		"LS_AzureDataLakeStorage_Connection2_properties_typeProperties_url": {
+			"value": "https://sademosactivities.dfs.core.windows.net"
+		},
+		"LS_AzureDataLakeStorage_demosactivities2_properties_typeProperties_url": {
+			"value": "https://sademosactivities2.dfs.core.windows.net"
+		}
+	}
+}
