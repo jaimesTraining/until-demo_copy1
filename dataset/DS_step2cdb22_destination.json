@@ -1,0 +1,17 @@
+{
+	"name": "DS_step2cdb22_destination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_step2cdb22_destination",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "data_tabla_pivoteada"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

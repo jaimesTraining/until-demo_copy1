@@ -1,0 +1,41 @@
+{
+	"name": "DS_sademosactivities_practicapersonal",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureBlobStorage_source",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "tablaPivoteada_csv.csv",
+				"container": "practicapersonal"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "item",
+				"type": "String"
+			},
+			{
+				"name": "ene",
+				"type": "String"
+			},
+			{
+				"name": "feb",
+				"type": "String"
+			},
+			{
+				"name": "mar",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

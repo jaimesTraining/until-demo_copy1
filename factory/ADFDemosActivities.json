@@ -1,0 +1,9 @@
+{
+	"name": "ADFDemosActivities",
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "20dce1a2-52d3-46a1-adc5-27bda5ca8dd2",
+		"tenantId": "9b2d5f87-e103-49cd-a5c2-2d42965d0a20"
+	}
+}

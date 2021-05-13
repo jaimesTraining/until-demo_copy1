@@ -1,0 +1,32 @@
+{
+	"name": "DS_output_cap79",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureDataLakeStorage_demosactivities2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"output_fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().output_fileName",
+					"type": "Expression"
+				},
+				"fileSystem": "destinocap79"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

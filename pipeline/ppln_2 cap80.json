@@ -1,0 +1,27 @@
+{
+	"name": "ppln_2 cap80",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ppln cap80",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"input_fileName": "Customer_Join_Right.csv",
+						"output_fileName": "miCopia Customer_Join_Right.csv"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-05-05T01:38:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
